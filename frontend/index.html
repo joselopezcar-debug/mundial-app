@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mundial App - Predicciones</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 30px; background: #f4f6f8; }
+    .card { background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    button { background: #007bff; color: white; border: none; padding: 8px 15px; cursor: pointer; border-radius: 4px; }
+    input { padding: 6px; margin: 5px 0; }
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    th { background: #007bff; color: white; }
+  </style>
+</head>
+<body>
+  <h1>⚽ App de Predicciones del Mundial</h1>
+
+  <!-- Crear o Unirse a Sala -->
+  <div class="card">
+    <h2>Gestión de Salas (Grupos)</h2>
+    <div>
+      <h3>Crear Sala</h3>
+      <input type="text" id="nombreSala" placeholder="Nombre de la sala">
+      <button onclick="crearSala()">Crear</button>
+      <p id="codigoResultado"></p>
+    </div>
+    <hr>
+    <div>
+      <h3>Unirse a Sala</h3>
+      <input type="text" id="codigoUnirse" placeholder="Código de invitación">
+      <button onclick="unirseSala()">Unirse</button>
+    </div>
+  </div>
+
+  <!-- Realizar Predicción -->
+  <div class="card">
+    <h2>Registrar Predicción</h2>
+    <label>ID Usuario: <input type="number" id="usrId" value="1"></label><br>
+    <label>ID Partido: <input type="number" id="partidoId" value="1"></label><br>
+    <label>Goles Local: <input type="number" id="golesL" value="2"></label>
+    <label>Goles Visitante: <input type="number" id="golesV" value="1"></label><br><br>
+    <button onclick="enviarPrediccion()">Guardar Predicción</button>
+  </div>
+
+  <!-- Tabla de Posiciones -->
+  <div class="card">
+    <h2>Tabla de Posiciones de la Sala</h2>
+    <input type="number" id="salaIdVer" placeholder="ID de la Sala">
+    <button onclick="cargarTabla()">Ver Clasificación</button>
+    <table id="tablaPosiciones">
+      <thead>
+        <tr>
+          <th>Posición</th>
+          <th>Participante</th>
+          <th>Puntos Acumulados</th>
+          <th>Racha Activa</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
